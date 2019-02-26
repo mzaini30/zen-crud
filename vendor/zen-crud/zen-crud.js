@@ -35,11 +35,9 @@ zen_read = function(table){
 	field_data = JSON.parse(localStorage.getItem('field_' + table))
 	data_sementara = []
 	for (n in data){
+		data_sementara[n] = []
 		for (n2 in field_data){
-			// window[table][n].field_data[n2] = data[n]
-			// window[table][n][field_data[n2]] = data[n]
-			// window[table][n] = 
-			data_sementara[n].field_data[n2] = data[n]
+			
 		}
 	}
 	console.log(data_sementara)
