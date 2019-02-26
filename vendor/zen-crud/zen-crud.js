@@ -43,5 +43,9 @@ zen_read = function(table){
 }
 
 zen_update = function(table, where, data){
+
+}
+
+zen_delete = function(table, where){
 	
 }
