@@ -2,7 +2,15 @@
 
 ## Getting Started
 
-## Cara Penggunaan
+Download di: <https://raw.githubusercontent.com/mzaini30/zen-crud/master/vendor/zen-crud/zen-crud.js>
+
+Untuk menggunakannya, cukup gunakan cara seperti biasanya:
+
+```html
+<script type="text/javascript" src="zen-crud.js"></script>
+```
+
+## Sintaks
 
 ### Create
 
