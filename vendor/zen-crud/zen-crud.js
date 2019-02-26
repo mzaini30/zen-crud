@@ -47,5 +47,11 @@ zen_update = function(table, where, data){
 }
 
 zen_delete = function(table, where){
-	
+	ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
+	for (n in ambil_id){
+		if (ambil_id[n] == where){
+			// console.log(n)
+		}
+	}
 }
+zen_delete('pengunjung', 0)
