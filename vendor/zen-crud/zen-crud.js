@@ -43,15 +43,27 @@ zen_read = function(table){
 }
 
 zen_update = function(table, where, data){
-
+	
 }
 
 zen_delete = function(table, where){
 	ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
+	field_data = JSON.parse(localStorage.getItem('field_' + table))
+	field_data.push('id')
+	key_yang_dihapus = 0
 	for (n in ambil_id){
 		if (ambil_id[n] == where){
-			// console.log(n)
+			key_yang_dihapus = n
 		}
 	}
+	for (n in field_data){
+		simpan_data = []
+		ambil_data = JSON.parse(localStorage.getItem(table + '_' + field_data[n]))
+		string = 'delete ambil_data' + '[' + key_yang_dihapus + ']'
+		eval(string)
+		for (n2 in ambil_data){
+			simpan_data.push(ambil_data[n2])
+		}
+		localStorage.setItem(table + '_' + field_data[n], JSON.stringify(simpan_data))
+	}
 }
-zen_delete('pengunjung', 0)
