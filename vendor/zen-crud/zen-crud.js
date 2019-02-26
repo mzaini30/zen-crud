@@ -15,11 +15,19 @@ zen_create = function(table, data){
 	}
 
 	field = []
+	isi_isian = []
+
 	for (n in data){
+		// n = nama
+		// data[n] = Zen
+
 		field[n] = JSON.parse(localStorage.getItem(table + '_' + n))
 		field[n].push(data[n])
 		localStorage.setItem(table + '_' + n, JSON.stringify(field[n]))
+
+		isi_isian.push(n)
 	}
+	localStorage.setItem('field_' + table, JSON.stringify(isi_isian))
 }
 
 zen_read = function(table){
