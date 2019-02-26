@@ -33,12 +33,20 @@ zen_create = function(table, data){
 zen_read = function(table){
 	data = JSON.parse(localStorage.getItem(table + '_id'))
 	field_data = JSON.parse(localStorage.getItem('field_' + table))
-	data_sementara = []
+	field_data.push('id')
+	window[table] = []
 	for (n in data){
-		data_sementara[n] = []
+		window[table][n] = {}
+		// console.log(string)
 		for (n2 in field_data){
-			
+			isi_data = JSON.parse(localStorage.getItem(table + '_' + field_data[n2]))
+			// string = table + '[' + n + '].id = "' + table + '_id' + [n] + '"'
+			string = table + '[' + n + '].' + field_data[n2] + ' = "' + isi_data[n] + '"'
+			eval(string)
+			// console.log(string)
 		}
 	}
-	console.log(data_sementara)
+	// console.log(window[table])
+	// console.log(window[table])
 }
+// zen_read('pengunjung')
