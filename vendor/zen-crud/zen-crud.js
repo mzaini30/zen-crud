@@ -21,3 +21,12 @@ zen_create = function(table, data){
 		localStorage.setItem(table + '_' + n, JSON.stringify(field[n]))
 	}
 }
+
+zen_read = function(table){
+	data = JSON.parse(localStorage.getItem(table + '_id'))
+	for (n in data){
+		if (window[table + '_id'] == null){
+			window[table + '_id'] = []
+		}
+	}
+}
