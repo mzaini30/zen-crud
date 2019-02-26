@@ -2,15 +2,22 @@ zen_init = function(table, data){
 	for (n in data){
 		localStorage.setItem(table + '_' + data[n], '[]')
 	}
-	localStorage.setItem(table + '_id', '[]')
+	localStorage.setItem(table + '_id', '["0"]')
 }
 
 zen_create = function(table, data){
-	// masih masalah jika table_id kosong
-	ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
-	id_baru = Number(ambil_id[ambil_id.length - 1]) + 1
-	ambil_id.push(id_baru)
-	localStorage.setItem(table + '_id', JSON.stringify(ambil_id))
+	if (localStorage.getItem(table + '_id') == null){
+		for (n in data){
+			localStorage.setItem(table + '_' + n, '[]')
+		}
+		localStorage.setItem(table + '_id', '["0"]')
+	}
+	if (localStorage.getItem(table + '_id') != '["0"]'){
+		ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
+		id_baru = Number(ambil_id[ambil_id.length - 1]) + 1
+		ambil_id.push(id_baru)
+		localStorage.setItem(table + '_id', JSON.stringify(ambil_id))	
+	}
 
 	field = []
 	for (n in data){
