@@ -18,9 +18,6 @@ zen_create = function(table, data){
 	isi_isian = []
 
 	for (n in data){
-		// n = nama
-		// data[n] = Zen
-
 		field[n] = JSON.parse(localStorage.getItem(table + '_' + n))
 		field[n].push(data[n])
 		localStorage.setItem(table + '_' + n, JSON.stringify(field[n]))
@@ -37,16 +34,14 @@ zen_read = function(table){
 	window[table] = []
 	for (n in data){
 		window[table][n] = {}
-		// console.log(string)
 		for (n2 in field_data){
 			isi_data = JSON.parse(localStorage.getItem(table + '_' + field_data[n2]))
-			// string = table + '[' + n + '].id = "' + table + '_id' + [n] + '"'
 			string = table + '[' + n + '].' + field_data[n2] + ' = "' + isi_data[n] + '"'
 			eval(string)
-			// console.log(string)
 		}
 	}
-	// console.log(window[table])
-	// console.log(window[table])
 }
-// zen_read('pengunjung')
+
+zen_update = function(table, where, data){
+	
+}
