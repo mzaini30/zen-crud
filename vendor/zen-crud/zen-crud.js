@@ -32,9 +32,15 @@ zen_create = function(table, data){
 
 zen_read = function(table){
 	data = JSON.parse(localStorage.getItem(table + '_id'))
+	field_data = JSON.parse(localStorage.getItem('field_' + table))
+	data_sementara = []
 	for (n in data){
-		if (window[table + '_id'] == null){
-			window[table + '_id'] = []
+		for (n2 in field_data){
+			// window[table][n].field_data[n2] = data[n]
+			// window[table][n][field_data[n2]] = data[n]
+			// window[table][n] = 
+			data_sementara[n].field_data[n2] = data[n]
 		}
 	}
+	console.log(data_sementara)
 }
