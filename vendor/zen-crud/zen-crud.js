@@ -1,22 +1,17 @@
-zen_init = function(table, data){
-	for (n in data){
-		localStorage.setItem(table + '_' + data[n], '[]')
-	}
-	localStorage.setItem(table + '_id', '["0"]')
-}
-
 zen_create = function(table, data){
 	if (localStorage.getItem(table + '_id') == null){
 		for (n in data){
 			localStorage.setItem(table + '_' + n, '[]')
 		}
-		localStorage.setItem(table + '_id', '["0"]')
+		localStorage.setItem(table + '_id', '[]')
 	}
-	if (localStorage.getItem(table + '_id') != '["0"]'){
-		ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
+	ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
+	if (ambil_id.length != 0){
 		id_baru = Number(ambil_id[ambil_id.length - 1]) + 1
 		ambil_id.push(id_baru)
 		localStorage.setItem(table + '_id', JSON.stringify(ambil_id))	
+	} else {
+		localStorage.setItem(table + '_id', '[0]')
 	}
 
 	field = []
