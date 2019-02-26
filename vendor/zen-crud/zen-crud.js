@@ -43,7 +43,24 @@ zen_read = function(table){
 }
 
 zen_update = function(table, where, data){
-	
+	ambil_id = JSON.parse(localStorage.getItem(table + '_id'))
+	field_data = JSON.parse(localStorage.getItem('field_' + table))
+	field_data.push('id')
+	key_yang_diambil = 0
+	for (n in ambil_id){
+		if (ambil_id[n] == where){
+			key_yang_diambil = n
+		}
+	}
+	for (n in data){
+		data_lagi = []
+		ambil_data = JSON.parse(localStorage.getItem(table + '_' + n))
+		ambil_data[key_yang_diambil] = data[n]
+		for (n2 in ambil_data){
+			data_lagi.push(ambil_data[n2])
+		}
+		localStorage.setItem(table + '_' + n, JSON.stringify(data_lagi))
+	}
 }
 
 zen_delete = function(table, where){
