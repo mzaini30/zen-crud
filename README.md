@@ -22,11 +22,27 @@ zen_create('mahasiswa', {
 })
 ```
 
+`mahasiswa` itu nama table-nya
+
+Kemudian `nama`, `angkatan`, dan `program_studi` adalah field-field yang kita isikan ke dalam table `mahasiswa`
+
+Maka, maksud dari sintaks di atas adalah memasukkan data ke table `mahasiswa` yang berisi data-data dari `nama`, `angkatan`, dan `program_studi` yang telah dideklarasikan
+
 ### Read
 
 ```javascript
 zen_read('mahasiswa')
 ```
+
+Sintaks di atas akan menghasilkan:
+
+```
+mahasiswa[0].nama = 'Zen'
+mahasiswa[0].angkatan = '2015'
+mahasiswa[0].program_studi = 'psikologi'
+```
+
+yang bisa dipanggil secara langsung karena mereka adalah variable global
 
 ### Update
 
